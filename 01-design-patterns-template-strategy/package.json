@@ -9,8 +9,5 @@
     "start": "node index.js"
   },
   "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "xml2js": "^0.6.2"
-  }
+  "license": "ISC"
 }
