@@ -1,8 +1,9 @@
 import fs from 'node:fs';
 
 export default class CitiesReporter {
-  constructor ({ formaterStrategy }) {
+  constructor ({ formaterStrategy, loaderStrategy }) {
     this._formaterStrategy = formaterStrategy;
+    this._loaderStrategy = loaderStrategy;
   }
 
   _read (filename) {
@@ -18,7 +19,6 @@ export default class CitiesReporter {
     this._parseJSON();
     return this._formaterStrategy.output(this._cities);
   }
-  
 }
 
 

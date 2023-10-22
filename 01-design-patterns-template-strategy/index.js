@@ -14,6 +14,7 @@ compositeLoader.load(filePath)
     console.error('Erro ao carregar e processar o arquivo:', error);
   });
 */
+
 import FormaterHTML from './src/FormaterHTML.js';
 import FormaterTXT from './src/FormaterTXT.js';
 import CitiesReporter from './src/CitiesReporter.js';
