@@ -14,11 +14,11 @@ export default class CitiesReporter {
   }
 
   report (filename) {
-    /*this._read(filename);
-    this._parseJSON();*/
+    this._read(filename);
+    this._parseJSON();
     return this._formaterStrategy.output(this._cities);
   }
-
+  
 }
 
 
