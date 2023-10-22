@@ -1,10 +1,16 @@
 import fs from 'node:fs';
 import Loader from './Loader.js';
 
+const fileType = 'xml';
+
   export default class LoaderXML extends Loader {
-    load(filename) {
+    constructor() {
+      super(fileType);
+    }
+    
+    load(filePath) {
       return new Promise((resolve, reject) => {
-        const xmlData = fs.readFileSync(filename, 'utf-8');
+        const xmlData = fs.readFileSync(filePath, 'utf-8');
         const rows = xmlData.split('<row>');
         rows.shift();
   

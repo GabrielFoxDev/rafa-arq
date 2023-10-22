@@ -16,7 +16,7 @@ export default class FormaterHTML extends AbstractFormater {
   `;
 
     for (let i = 0; i < cities.length; i++) {
-      html += `     <li>${cities[i]['Nome']}</li>\n`;
+      html += `     <li>${cities[i]['Nome']}</li><br><li>${cities[i]['Estado']}</li>\n`;
     }
 
     html += `

@@ -1,9 +1,12 @@
-/*import LoaderXML from './src/LoaderXML.js';
+import LoaderXML from './src/LoaderXML.js';
+import LoaderHTML from './src/LoaderHTML.js';
 import CompositeLoader from './src/CompositeLoader.js';
 
 const filePath = process.argv[2];
 const compositeLoader = new CompositeLoader();
 compositeLoader.addLoader(new LoaderXML());
+compositeLoader.addLoader(new LoaderHTML());
+
 let parsedData = {};
 compositeLoader.load(filePath)
   .then(jsonData => {
@@ -13,8 +16,9 @@ compositeLoader.load(filePath)
   .catch(error => {
     console.error('Erro ao carregar e processar o arquivo:', error);
   });
-*/
 
+
+/*
 import FormaterHTML from './src/FormaterHTML.js';
 import FormaterTXT from './src/FormaterTXT.js';
 import CitiesReporter from './src/CitiesReporter.js';
@@ -35,7 +39,7 @@ let reporter = new CitiesReporter({
 console.log(output);
 
 
-
+*/
 
 
 

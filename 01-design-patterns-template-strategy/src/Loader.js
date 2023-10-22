@@ -3,6 +3,15 @@
  */
 export default class Loader {
   /**
+   * Creates a new instance of Loader.
+   *
+   * @param {string} fileType - The type of file supported by this loader.
+   */
+  constructor(fileType) {
+    this.fileType = fileType;
+  }
+
+  /**
    * Loads a file.
    *
    * @param {string} filePath - The path of the file to be loaded.

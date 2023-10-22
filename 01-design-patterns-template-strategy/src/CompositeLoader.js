@@ -12,7 +12,7 @@ export default class CompositeLoader extends Loader {
 
   async load(filePath) {
     const fileType = this.getFileType(filePath);
-
+    console.log(fileType);
     const loader = this.loaders.find(loader => loader.supportsFile(fileType));
 
     if (loader) {
@@ -28,8 +28,19 @@ export default class CompositeLoader extends Loader {
   }
 
   getFileType(filePath) {
-    // Implemente a lógica para extrair o tipo de arquivo do nome do arquivo
-    // Por exemplo, você pode verificar a extensão do arquivo que ja vem imbutida no construtor da classe loader
-   
+    const extension = filePath.split('.').pop().toLowerCase();
+
+    const loader = this.loaders.find(loader => loader.supportsFile(this.fileType));
+  
+    if (loader) {
+      return this.fileType;
+    }
+  
+    // Implemente a lógica para mapear a extensão para o tipo de arquivo correspondente
+    // Por exemplo, se a extensão for 'xml', você pode retornar 'xml'
+    // Se a extensão for 'json', você pode retornar 'json'
+    // Certifique-se de retornar o valor correto para o tipo de arquivo
+  
+    return extension;
   }
 }
