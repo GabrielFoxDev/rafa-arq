@@ -26,7 +26,7 @@ compositeLoader.load(filePath)
   })
   .catch(error => {
     console.error('Erro ao carregar e processar o arquivo:', error);
-  });
+});
 
 
 

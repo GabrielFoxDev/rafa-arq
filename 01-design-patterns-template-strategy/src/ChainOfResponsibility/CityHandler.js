@@ -1,4 +1,4 @@
-import HTMLHandler from './src/ChainOfResponsibility/HTMLHandler.js'
+import HTMLHandler from "./HTMLHandler.js";
 
 class CityHandler extends HTMLHandler {
     handle(data) {
