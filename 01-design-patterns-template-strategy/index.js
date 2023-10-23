@@ -7,6 +7,9 @@ import CityHandler from './src/ChainOfResponsibility/CityHandler.js';
 import StateHandler from './src/ChainOfResponsibility/StateHandler.js';
 import HeaderHandler from './src/ChainOfResponsibility/HeaderHandler.js';
 
+import HtmlFormatter from './src/Decorator/HtmlFormatter.js';
+import StateDecorator from './src/Decorator/StateDecorator.js';
+
 
 const filePath = process.argv[2];
 
@@ -19,21 +22,20 @@ compositeLoader.addLoader(new LoaderCSV());
 
 
 //objetos chain of responsibility
-
-
-const cityHandler = new CityHandler();
-const stateHandler = new StateHandler(cityHandler);
-const headerHandler = new HeaderHandler(stateHandler);
-
+// const cityHandler = new CityHandler();
+// const stateHandler = new StateHandler(cityHandler);
+// const headerHandler = new HeaderHandler(stateHandler);
 
 compositeLoader.load(filePath)
   .then(jsonData => {
-    headerHandler.handle(jsonData);
+    // headerHandler.handle(jsonData);
+
+    const decoratedFormatter = new StateDecorator(new HtmlFormatter());
+    console.log(decoratedFormatter.format(jsonData));
   })
   .catch(error => {
     console.error('Erro ao carregar e processar o arquivo:', error);
 });
-
 
 
 
