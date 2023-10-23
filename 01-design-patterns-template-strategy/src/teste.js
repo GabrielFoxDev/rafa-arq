@@ -1,5 +1,5 @@
 import fs from 'node:fs';
-import Loader from './Loader.js';
+import Loader from './Composite/Loader.js';
 
 const fileType = 'yaml';
 

@@ -22,6 +22,7 @@ const stateHandler = new StateHandler(cityHandler);
 
 compositeLoader.load(filePath)
   .then(jsonData => {
+    console.log('Saida: ')
     stateHandler.handle(jsonData);
   })
   .catch(error => {
