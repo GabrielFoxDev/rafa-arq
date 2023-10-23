@@ -36,11 +36,6 @@ export default class CompositeLoader extends Loader {
       return this.fileType;
     }
   
-    // Implemente a lógica para mapear a extensão para o tipo de arquivo correspondente
-    // Por exemplo, se a extensão for 'xml', você pode retornar 'xml'
-    // Se a extensão for 'json', você pode retornar 'json'
-    // Certifique-se de retornar o valor correto para o tipo de arquivo
-  
     return extension;
   }
 }
