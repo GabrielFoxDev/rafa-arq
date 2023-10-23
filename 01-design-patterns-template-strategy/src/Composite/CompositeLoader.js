@@ -12,9 +12,8 @@ export default class CompositeLoader extends Loader {
 
   async load(filePath) {
     const fileType = this.getFileType(filePath);
-    console.log(fileType);
     const loader = this.loaders.find(loader => loader.supportsFile(fileType));
-
+    console.log('Entrada:', fileType)
     if (loader) {
       const jsonData = await loader.load(filePath);
       return jsonData;
@@ -29,13 +28,6 @@ export default class CompositeLoader extends Loader {
 
   getFileType(filePath) {
     const extension = filePath.split('.').pop().toLowerCase();
-
-    const loader = this.loaders.find(loader => loader.supportsFile(this.fileType));
-  
-    if (loader) {
-      return this.fileType;
-    }
-  
     return extension;
   }
 }

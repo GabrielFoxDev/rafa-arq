@@ -1,6 +1,5 @@
 import fs from 'node:fs';
 import Loader from './Loader.js';
-
 const fileType = 'csv';
 
 export default class LoaderCSV extends Loader {
@@ -9,7 +8,7 @@ export default class LoaderCSV extends Loader {
   }
   
   load(filePath) {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
       const csvData = fs.readFileSync(filePath, 'utf-8');
       const rows = csvData.split(/\r?\n/).filter(row => row.trim().length > 0);
       const header = rows.shift().split(',');
