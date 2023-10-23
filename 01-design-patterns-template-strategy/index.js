@@ -3,14 +3,22 @@ import LoaderHTML from './src/Composite/LoaderHTML.js';
 import LoaderYAML from './src/LoaderYAML.js';
 import LoaderCSV from './src/LoaderCSV.js';
 import CompositeLoader from './src/CompositeLoader.js';
+import CityHandler from './src/Chain Of Responsibility/CityHandler.JS';
+import StateHandler from './src/Chain Of Responsibility/StateHandler.JS';
 
 const filePath = process.argv[2];
+
+// objetos composite
 const compositeLoader = new CompositeLoader();
 compositeLoader.addLoader(new LoaderXML());
 compositeLoader.addLoader(new LoaderHTML());
 compositeLoader.addLoader(new LoaderYAML());
 compositeLoader.addLoader(new LoaderCSV());
 
+
+//objetos chain of responsibility
+const cityHandler = new CityHandler();
+const stateHandler = new StateHandler(cityHandler);
 
 compositeLoader.load(filePath)
   .then(jsonData => {
@@ -21,28 +29,11 @@ compositeLoader.load(filePath)
   });
 
 
-/*
-import FormaterHTML from './src/FormaterHTML.js';
-import FormaterTXT from './src/FormaterTXT.js';
-import CitiesReporter from './src/CitiesReporter.js';
-
-const [cmd, script, inputType] = process.argv,
-      filename = './data/cidades-2.json';
-
-const formaterStrategies = {
-  'html': new FormaterHTML(),
-  'txt': new FormaterTXT()
-};
-
-let reporter = new CitiesReporter({
-      formaterStrategy: formaterStrategies[inputType]
-    }),
-    output = reporter.report(filename);
-
-console.log(output);
 
 
-*/
+stateHandler.handle(jsonData);
+
+
 
 
 
