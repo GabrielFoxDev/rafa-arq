@@ -1,10 +1,10 @@
 import LoaderXML from './src/Composite/LoaderXML.js';
 import LoaderHTML from './src/Composite/LoaderHTML.js';
-import LoaderYAML from './src/LoaderYAML.js';
-import LoaderCSV from './src/LoaderCSV.js';
-import CompositeLoader from './src/CompositeLoader.js';
-import CityHandler from './src/Chain Of Responsibility/CityHandler.JS';
-import StateHandler from './src/Chain Of Responsibility/StateHandler.JS';
+import LoaderYAML from './src/Composite/LoaderYAML.js';
+import LoaderCSV from './src/Composite/LoaderCSV.js';
+import CompositeLoader from './src/Composite/CompositeLoader.js';
+import CityHandler from './src/ChainOfResponsibility/CityHandler.js';
+import StateHandler from './src/ChainOfResponsibility/StateHandler.js';
 
 const filePath = process.argv[2];
 
@@ -22,7 +22,7 @@ const stateHandler = new StateHandler(cityHandler);
 
 compositeLoader.load(filePath)
   .then(jsonData => {
-   console.log(JSON.stringify(jsonData, null, 2));
+    stateHandler.handle(jsonData);
   })
   .catch(error => {
     console.error('Erro ao carregar e processar o arquivo:', error);
@@ -31,7 +31,7 @@ compositeLoader.load(filePath)
 
 
 
-stateHandler.handle(jsonData);
+
 
 
 
