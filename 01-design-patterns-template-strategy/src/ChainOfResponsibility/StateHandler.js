@@ -23,6 +23,7 @@ class StateHandler extends HTMLHandler {
       });
       console.log("</ul>");
       console.log('</body>');
+      console.log('</html>');
     }
 }
 
