@@ -1,5 +1,5 @@
-import LoaderXML from './src/LoaderXML.js';
-import LoaderHTML from './src/LoaderHTML.js';
+import LoaderXML from './src/Composite/LoaderXML.js';
+import LoaderHTML from './src/Composite/LoaderHTML.js';
 import LoaderYAML from './src/LoaderYAML.js';
 import LoaderCSV from './src/LoaderCSV.js';
 import CompositeLoader from './src/CompositeLoader.js';
