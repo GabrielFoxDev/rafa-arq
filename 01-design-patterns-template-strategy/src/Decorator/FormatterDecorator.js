@@ -1,7 +1,8 @@
-import IFormatter from './IFormater.js';
+import IFormatter from './IFormatter.js';
 
 export default class FormatterDecorator extends IFormatter {
   constructor(formatter) {
+    super();
     this._formatter = formatter;
   }
 

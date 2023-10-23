@@ -9,6 +9,7 @@ import HeaderHandler from './src/ChainOfResponsibility/HeaderHandler.js';
 
 import HtmlFormatter from './src/Decorator/HtmlFormatter.js';
 import StateDecorator from './src/Decorator/StateDecorator.js';
+import TemplateDecorator from './src/Decorator/TemplateDecorator.js';
 
 
 const filePath = process.argv[2];
@@ -30,7 +31,7 @@ compositeLoader.load(filePath)
   .then(jsonData => {
     // headerHandler.handle(jsonData);
 
-    const decoratedFormatter = new StateDecorator(new HtmlFormatter());
+    const decoratedFormatter = new TemplateDecorator(new StateDecorator(new HtmlFormatter()));
     console.log(decoratedFormatter.format(jsonData));
   })
   .catch(error => {
