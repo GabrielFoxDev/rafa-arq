@@ -1,4 +1,3 @@
-
 class HTMLHandler {
     constructor(successor = null) {
       this.successor = successor;
